@@ -34,6 +34,7 @@
 #include <api/MySmartGrid.hpp>
 #include <api/InfluxDB.hpp>
 #include <api/Null.hpp>
+#include <api/Hpm-Test.hpp>
 #ifdef LOCAL_SUPPORT
 #include "local.h"
 #endif
@@ -179,6 +180,10 @@ void * logging_thread(void *arg) { // get's started from Channel::start and stop
 	else if (0 == strcasecmp(ch->apiProtocol().c_str(), "null")) {
 		api =  vz::ApiIF::Ptr(new vz::api::Null(ch, ch->options()));
 		print(log_debug, "Using null api- meter data available via local httpd if enabled.", ch->name());
+	}
+	else if (0 == strcasecmp(ch->apiProtocol().c_str(), "hpm_test")) {
+		api =  vz::ApiIF::Ptr(new vz::api::hpm_test(ch, ch->options()));
+		print(log_debug, "Using hpm_test api.", ch->name());
 	} else {
 		if (strcasecmp(ch->apiProtocol().c_str(), "volkszaehler"))
 			print(log_alert, "Wrong config! api: <%s> is unknown!", ch->name(), ch->apiProtocol().c_str());
