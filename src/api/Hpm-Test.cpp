@@ -122,16 +122,6 @@ void vz::api::hpm_test::send()
 	 */
 	buf->lock();
 	for (Buffer::iterator it = buf->begin(); it != buf->end(); it++) {
-		print(log_debug,
-			  "inst: %p, buffer %p, %03.3f @ %ld (ip: %s, port: %d)",
-			  channel()->name(),
-			  this,
-			  channel()->buffer(),
-			  it->value(),
-			  it->time_ms(),
-			  ip, dport
-			  );
-
 		/* transmitt data to PLC */
 		payload.cnt++;
 		payload.ts = it->time_ms();
