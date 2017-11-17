@@ -125,7 +125,7 @@ void vz::api::hpm_test::send()
 		/* transmitt data to PLC */
 		payload.cnt++;
 		payload.ts = it->time_ms();
-		payload.val = it->value();
+		payload.val = (uint32_t)it->value();
 
 		rc = sendto(sock, &payload, sizeof(payload), 0,
 					(struct sockaddr *)&peer,

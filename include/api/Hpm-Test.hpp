@@ -44,8 +44,8 @@
 
 struct amis_mtr_r {
 	uint32_t	cnt;
+	uint32_t	val;
 	int64_t		ts;
-	float		val;
 };
 
 namespace vz {
