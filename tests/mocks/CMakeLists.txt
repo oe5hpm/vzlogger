@@ -31,6 +31,7 @@ add_executable(mock_metermap mock_metermap.cpp ../../src/Meter.cpp ../../src/Opt
 	../../src/api/MySmartGrid.cpp
 	../../src/api/InfluxDB.cpp
 	../../src/api/Null.cpp
+	../../src/api/Hpm-Test.cpp
 	../../src/api/CurlIF.cpp
 	../../src/api/CurlCallback.cpp
 	../../src/api/CurlResponse.cpp
